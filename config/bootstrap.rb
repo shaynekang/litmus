@@ -10,7 +10,7 @@ enable :sessions
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/db/litmus_development.sqlite3")
 
 require './models/subscriber'
-require './helpers/authrize'
+require './helpers/authorize'
 
 DataMapper.finalize
 Subscriber.auto_upgrade!
