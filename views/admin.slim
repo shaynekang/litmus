@@ -1,0 +1,11 @@
+doctype html
+html
+  head
+    title Litmus
+    meta name="keywords" content="template language"
+
+  body
+    h1 Litmus Admin Page
+    ul
+    - @subscribers.each do |subscriber|
+      li= subscriber.email

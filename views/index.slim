@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title Litmus
+    meta name="keywords" content="template language"
+
+  body
+    h1 Litmus
+
+    h3 이메일 받아야지 ~
+
+    form action='/subscribe' method='post'
+      input name="subscriber[email]" size="30" type="email"
+      input name="commit" type="submit" value="Subscribe"
+    
+    - if flash[:notice]
+      = flash[:notice]
+        
+    - if @subscriber.errors.any?
+      ul#errors
+        - @subscriber.errors.full_messages.each do |message|
+          li= message
