@@ -8,7 +8,7 @@ require 'slim'
 
 enable :sessions
 
-DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/litmus_development.db")
+DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/litmus_development.db")
 
 class Subscriber
   include DataMapper::Resource
