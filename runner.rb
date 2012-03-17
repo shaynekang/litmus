@@ -16,6 +16,7 @@ post '/subscribe' do
 end
 
 get '/admin' do
+  protected!
   @subscribers = Subscriber.all
   slim :admin
 end

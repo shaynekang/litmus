@@ -9,3 +9,4 @@ enable :sessions
 require 'slim'
 
 require './config/data_mapper'
+require './helpers/authrize'
