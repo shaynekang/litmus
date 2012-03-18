@@ -9,6 +9,7 @@ html
     h3 이메일 받아야지 ~
 
     form action='/subscribe' method='post'
+      == csrf_tag
       input name="subscriber[email]" size="30" type="email"
       input name="commit" type="submit" value="Subscribe"
     

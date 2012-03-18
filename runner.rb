@@ -1,9 +1,9 @@
-require 'sinatra'
 require './config/bootstrap'
 
 get '/' do
   @subscriber = Subscriber.new
   slim :index
+#  erb :index
 end
 
 post '/subscribe' do

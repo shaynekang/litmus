@@ -2,6 +2,7 @@ source :rubygems
 
 gem 'sinatra'
 gem 'sinatra-flash'
+gem 'rack_csrf'
 gem 'datamapper'
 gem 'slim'
 
