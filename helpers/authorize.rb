@@ -7,9 +7,7 @@ helpers do
   end
 
   def authorized?
-    name = ENV['ADMIN_USERNAME'] || 'admin'
-    password = ENV['ADMIN_PASSWORD'] || 'admin'
     @auth ||=  Rack::Auth::Basic::Request.new(request.env)
-    @auth.provided? && @auth.basic? && @auth.credentials && @auth.credentials == [name, password]
+    @auth.provided? && @auth.basic? && @auth.credentials && @auth.credentials == [settings.name, settings.password]
   end
 end
