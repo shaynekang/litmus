@@ -6,8 +6,13 @@ require 'data_mapper'
 require 'slim'
 
 enable :sessions
+set :database_url, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/db/litmus_development.sqlite3"
 
-DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/db/litmus_development.sqlite3")
+if settings.environment != :production && File.directory?('db') == false
+  Dir.mkdir('db')
+end
+
+DataMapper.setup(:default, settings.database_url)
 
 require './models/subscriber'
 require './helpers/authorize'

@@ -6,6 +6,7 @@ gem 'datamapper'
 gem 'slim'
 
 group :development do
+  gem 'cane'
   gem 'shotgun'
   gem 'dm-sqlite-adapter'
   gem 'heroku'
