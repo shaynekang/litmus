@@ -1,22 +1,28 @@
 doctype html
 html
   head
-    title Litmus
+    title 리트머스
     meta name="keywords" content="template language"
-
+    link rel='stylesheet' href='stylesheets/application.css' type='text/css'
   body
-    h1 Litmus
-    h3 이메일 받아야지 ~
+    #container
+      #left
+        h1 Litmus
 
-    form action='/subscribe' method='post'
-      == csrf_tag
-      input name="subscriber[email]" size="30" type="email"
-      input name="commit" type="submit" value="Subscribe"
-    
-    - if flash[:notice]
-      = flash[:notice]
-        
-    - if @subscriber.errors.any?
-      ul#errors
-        - @subscriber.errors.full_messages.each do |message|
-          li= message
+      #right
+        #description
+          p 이 페이지에서 팀블로그 <a href='http://blog.ohmynews.com/litmus'>리트머스</a>를 이메일로 구독할 수 있습니다.
+          p 구독을 원하시는 분들은 이메일 주소를 기입해주세요.
+
+          form action='/subscribe' id='subscribe-form' method='post'
+            == csrf_tag
+            input name="subscriber[email]" size="30" type="email"
+            input name="commit" type="submit" value="Subscribe"
+
+          - if flash[:notice]
+            = flash[:notice]
+
+          - if @subscriber.errors.any?
+            ul#errors
+              - @subscriber.errors.full_messages.each do |message|
+                li= message

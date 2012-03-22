@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#left {
+    position:absolute;
+    width: 43%;
+    height: 100%;
+    left: 0;
+	background: #ffc0c9;
+}
+
+h1 {
+    margin: 20px;
+}
+
+#right {
+    position:absolute;
+    width: 57%;
+    height: 100%;
+    right: 0;
+    background: #abf1fd;
+}
+
+#description {
+    position: absolute;
+    width: 360px;
+    height: 200px;
+    right: 20px;
+    bottom: 20px;
+}
+
+p {
+    font-size: 12px;
+}
+
+#subscribe-form input[type=email] {
+    width: 200px;
+}
