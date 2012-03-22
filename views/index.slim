@@ -27,3 +27,14 @@ html
             ul#errors
               - @subscriber.errors.full_messages.each do |message|
                 li= message
+        #info
+          p
+            | Created by
+            == " <a href='http://www.twitter.com/paranoiase' target='_blank'>@paranoiase</a>. "
+            | We run
+            == " <a href='http://www.sinatrarb.com/' target='_blank'>Sinatra #{Sinatra::VERSION}</a>"
+            = " and "
+            == " <a href='http://www.ruby-lang.org/' target='_blank'>Ruby #{RUBY_VERSION}</a>"
+            = ". This site is "
+            == " <a href='https://github.com/paranoiase/litmus' target='_blank'>open sourced</a>"
+
