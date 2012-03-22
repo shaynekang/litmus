@@ -1,3 +1,4 @@
+require 'sinatra'
 require './config/bootstrap'
 
 get '/' do
