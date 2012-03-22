@@ -12,6 +12,11 @@ html
 
       #right
         #description
+          h3
+            | 현재 
+            strong= @subscribers.count
+            | 명이 이 블로그를 구독하고 있습니다.
+
           p 이 페이지에서 팀블로그 <a href='http://blog.ohmynews.com/litmus' target='_blank'>리트머스</a>를 이메일로 구독할 수 있습니다.
           p 구독을 원하시는 분들은 이메일 주소를 기입해주세요.
 
@@ -25,7 +30,7 @@ html
 
           - if @subscriber.errors.any?
             ul#errors
-              - @subscriber.errors.full_messages.each do |message|
+             - @subscriber.errors.full_messages.each do | message |
                 li= message
         #info
           p
@@ -37,4 +42,3 @@ html
             == " <a href='http://www.ruby-lang.org/' target='_blank'>Ruby #{RUBY_VERSION}</a>"
             = ". This site is "
             == " <a href='https://github.com/paranoiase/litmus' target='_blank'>open sourced</a>"
-
