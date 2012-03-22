@@ -12,15 +12,16 @@ set :database_url, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/db/litmus_develo
 set :name, ENV['ADMIN_USERNAME'] || 'admin'
 set :password, ENV['ADMIN_PASSWORD'] || 'admin'
 
-if settings.environment != :production && File.directory?('db') == false
+if settings.environment != :production and File.directory?('db') == false
   Dir.mkdir('db')
 end
 
 DataMapper.setup(:default, settings.database_url)
 
 require './models/subscriber'
-require './helpers/authorize'
-require './helpers/csrf'
 
 DataMapper.finalize
 Subscriber.auto_upgrade!
+
+require './helpers/authorize'
+require './helpers/csrf'
