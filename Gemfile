@@ -9,8 +9,8 @@ gem 'slim'
 group :development do
   gem 'cane'
   gem 'shotgun'
-  gem 'dm-sqlite-adapter'
   gem 'heroku'
+  gem 'dm-sqlite-adapter'
 end
 
 group :production do
