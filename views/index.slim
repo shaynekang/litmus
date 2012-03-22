@@ -21,7 +21,7 @@ html
             input name="commit" type="submit" value="구독하기"
 
           - if flash[:notice]
-            = flash[:notice]
+            .notice= flash[:notice]
 
           - if @subscriber.errors.any?
             ul#errors

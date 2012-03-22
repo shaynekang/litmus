@@ -1,16 +1,17 @@
+# encoding: UTF-8
+
 require 'sinatra'
 require './config/bootstrap'
 
 get '/' do
   @subscriber = Subscriber.new
   slim :index
-#  erb :index
 end
 
 post '/subscribe' do
   @subscriber = Subscriber.new(params[:subscriber])
   if @subscriber.save
-    flash[:notice] = "Thanks for Subscribe!"
+    flash[:notice] = "이메일이 등록되었습니다!"
     redirect to('/')
   else
     slim :index
