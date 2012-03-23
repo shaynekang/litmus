@@ -10,12 +10,12 @@ $(document).ready(function(){
         $.ajax({
             type: "POST",
             url: '/subscribe',
-            data: $("#subscribe-form").serialize(),
+            data: $(this).serialize(),
             success: function(response){
                 $('.success, .error').remove();
                 $('#description').append("<div class='" + response.result + "'>" + response.message + "</div>");
                 if(response.result == 'success') {
-                    $('#subscriber-email-input').val("");
+                    $('#subscribe-email-input').val("");
                 }
             },
             error: function(data, status, err) {
