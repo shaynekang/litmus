@@ -2,6 +2,7 @@ GEM
   remote: http://rubygems.org/
   specs:
     addressable (2.2.7)
+    backports (2.3.0)
     bcrypt-ruby (3.0.1)
     cane (1.0.0)
       tailor
@@ -58,6 +59,7 @@ GEM
       data_objects (= 0.10.8)
     do_sqlite3 (0.10.8)
       data_objects (= 0.10.8)
+    eventmachine (0.12.10)
     fastercsv (1.5.4)
     heroku (2.21.3)
       launchy (>= 0.3.2)
@@ -75,6 +77,8 @@ GEM
     rack (1.4.1)
     rack-protection (1.2.0)
       rack
+    rack-test (0.6.1)
+      rack (>= 1.0)
     rack_csrf (2.4.0)
       rack (>= 0.9)
     rest-client (1.6.7)
@@ -86,6 +90,13 @@ GEM
       rack (~> 1.3, >= 1.3.6)
       rack-protection (~> 1.2)
       tilt (~> 1.3, >= 1.3.3)
+    sinatra-contrib (1.3.1)
+      backports (>= 2.0)
+      eventmachine
+      rack-protection
+      rack-test
+      sinatra (~> 1.3.0)
+      tilt (~> 1.3)
     sinatra-flash (0.3.0)
       sinatra (>= 1.0.0)
     slim (1.1.1)
@@ -112,5 +123,6 @@ DEPENDENCIES
   rack_csrf
   shotgun
   sinatra
+  sinatra-contrib
   sinatra-flash
   slim

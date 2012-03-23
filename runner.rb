@@ -11,10 +11,18 @@ end
 post '/subscribe' do
   @subscriber = Subscriber.new(params[:subscriber])
   if @subscriber.save
-    flash[:notice] = "이메일이 등록되었습니다!"
-    redirect to('/')
+    if request.xhr?
+      json result: 'success', message: "이메일이 등록되었습니다!"
+    else
+      flash[:notice] = "이메일이 등록되었습니다!"
+      redirect to('/')
+    end
   else
-    slim :index
+    if request.xhr?
+      json result: 'error', message: @subscriber.errors.full_messages.first
+    else
+      slim :index
+    end
   end
 end
 

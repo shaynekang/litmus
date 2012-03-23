@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'bundler/setup'
 require 'sinatra/flash'
+require 'sinatra/contrib'
 require 'rack/csrf'
 require 'data_mapper'
 require 'slim'
