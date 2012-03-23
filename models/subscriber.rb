@@ -16,6 +16,10 @@ class Subscriber
       errors.any?
     end
 
+    def success_message
+      "이메일이 등록되었습니다!"
+    end
+
     def error_message
       errors.full_messages.first
     end

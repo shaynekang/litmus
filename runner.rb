@@ -21,7 +21,7 @@ end
 post '/subscribe.json' do
   @subscriber = Subscriber.new(params[:subscriber])
   if @subscriber.save
-    json result: 'success', message: "이메일이 등록되었습니다!"
+    json result: 'success', message: @subscriber.success_message
   else
     json result: 'error', message: @subscriber.error_message
   end
