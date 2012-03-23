@@ -28,7 +28,7 @@ post '/subscribe.json' do
 end
 
 get '/admin' do
-  protected!
+  need_authorize!
   @subscribers = Subscriber.all
   slim :admin
 end

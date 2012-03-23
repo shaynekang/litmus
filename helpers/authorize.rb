@@ -1,5 +1,5 @@
 helpers do
-  def protected!
+  def need_authorize!
     unless authorized?
       response['WWW-Authenticate'] = %(Basic realm="Restricted Area")
       throw(:halt, [401, "Not authorized\n"])
