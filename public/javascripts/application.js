@@ -14,6 +14,9 @@ $(document).ready(function(){
             success: function(response){
                 $('.success, .error').remove();
                 $('#description').append("<div class='" + response.result + "'>" + response.message + "</div>");
+                if(response.result == 'success') {
+                    $('#subscriber-email-input').val("");
+                }
             },
             error: function(data, status, err) {
                 alert('알 수 없는 에러가 발생했습니다. = ' + JSON.stringify(data));
