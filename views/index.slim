@@ -30,8 +30,8 @@ html
 
           - if flash[:notice]
             .success= flash[:notice]
-          - if @subscriber.errors.any?
-		  	.error= @subscriber.errors.full_messages.first
+          - if @subscriber.errors?
+		  	.error= @subscriber.error_message
 
         #info
           p

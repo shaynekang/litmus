@@ -9,7 +9,7 @@ $(document).ready(function(){
     $('#subscribe-form').submit(function(){
         $.ajax({
             type: "POST",
-            url: '/subscribe',
+            url: '/subscribe.json',
             data: $(this).serialize(),
             success: function(response){
                 $('.success, .error').remove();

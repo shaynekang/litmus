@@ -5,10 +5,18 @@ class Subscriber
 
   property :id, Serial, unique: true
   property :email, String, :required => true, :unique => true,
-     :format   => :email_address,
-     :messages => {
-       :presence  => '이메일 주소를 입력해주세요.',
-       :is_unique => '같은 이메일이 이미 등록되어 있습니다.',
-       :format    => "올바른 이메일 주소를 입력해주세요."
-     }
+    :format   => :email_address,
+    :messages => {
+      :presence  => '이메일 주소를 입력해주세요.',
+      :is_unique => '같은 이메일이 이미 등록되어 있습니다.',
+      :format    => "올바른 이메일 주소를 입력해주세요."
+    }
+
+    def errors?
+      errors.any?
+    end
+
+    def error_message
+      errors.full_messages.first
+    end
 end
