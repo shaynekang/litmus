@@ -6,6 +6,20 @@ $(document).ready(function(){
       }
     });
 
+	var formMessage = function(type, message) {
+		var typeClass = type + "-message"
+		var target = "<div class='" + typeClass + "'>" + message + "</div>";
+		$('#subscribe-form').append(target);
+		$('.' + typeClass).live('click', function(){
+			$(this).stop(true).slideUp(function(){ $(this).remove() });
+		}).css({
+			opacity: 0.7,
+			cursor: 'pointer'
+		}).hide().slideDown().delay(3000).slideUp(function(){
+			$(this).remove();
+		});
+	}
+
     $('#subscribe-form').submit(function(){
         $.ajax({
             type: "POST",
@@ -13,7 +27,7 @@ $(document).ready(function(){
             data: $(this).serialize(),
             success: function(response){
                 $('.success, .error').remove();
-                $('#description').append("<div class='" + response.result + "'>" + response.message + "</div>");
+				formMessage(response.result, response.message);
                 if(response.result == 'success') {
                     $('#subscribe-email-input').val("");
                 }

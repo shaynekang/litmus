@@ -41,11 +41,27 @@ h3 {
     width: 200px;
 }
 
+.success-message {
+    width: 205px;
+    height: 20px;
+    text-align: center;
+    background-color: #26b0bf;
+    color:#fff;
+}
+
+.error-message {
+    width: 205px;
+    height: 20px;
+    text-align: center;
+    background-color: #ea4217;
+    color:#fff;
+}
+
 #info {
-	position: absolute;
-	width: 420px;
-	right: 5px;
-	bottom: 5px;
-	font-size: 10px;
-	text-align: right;
+    position: absolute;
+    width: 420px;
+    right: 5px;
+    bottom: 5px;
+    font-size: 10px;
+    text-align: right;
 }
