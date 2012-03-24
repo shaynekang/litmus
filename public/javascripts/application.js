@@ -24,6 +24,7 @@ $(document).ready(function(){
             <div class='f_circleG' id='frotateG_08'> \
             </div> \
         </div>"
+
     var Message = {
         display: function(type, message) {
             var typeClass = type + "-message"
@@ -56,13 +57,11 @@ $(document).ready(function(){
             data: $(this).serialize()
         })
         .done(function(response) {
-            setTimeout(function(){
-                $('.loading').remove();
-                Message.display(response.result, response.message);
-                if(response.result == 'success') {
-                    $('input[name$="subscriber[email]"]').val("");
-                }
-            }, 1000);
+            $('.loading').remove();
+            Message.display(response.result, response.message);
+            if(response.result == 'success') {
+                $('input[name$="subscriber[email]"]').val("");
+            }
         })
         .fail(function(data, status, err){
             alert('알 수 없는 에러가 발생했습니다. = ' + JSON.stringify(data));
