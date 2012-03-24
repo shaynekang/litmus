@@ -6,22 +6,29 @@ $(document).ready(function(){
       }
     });
 
-    var formMessage = function(type, message) {
-        var typeClass = type + "-message"
-        var target = "<div class='" + typeClass + "'>" + message + "</div>";
-        $('#subscribe-form').append(target);
-        $('.' + typeClass).live('click', function(){
-            $(this).stop(true).slideUp(function(){ $(this).remove() });
-        }).css({
-            opacity: 0.7,
-            cursor: 'pointer'
-        }).hide().slideDown().delay(3000).slideUp(function(){
-            $(this).remove();
-        });
+    var Message = {
+        display: function(type, message) {
+            var typeClass = type + "-message"
+            var target = "<div class='" + typeClass + "'>" + message + "</div>";
+            $('#subscribe-form').append(target);
+            $('.' + typeClass).live('click', function(){
+                $(this).stop(true).slideUp(function(){ $(this).remove() });
+            }).css({
+                opacity: 0.7,
+                cursor: 'pointer'
+            }).hide().slideDown().delay(3000).slideUp(function(){
+                $(this).remove();
+            });
+        },
+        remove: function(){
+            $('.success-message, .error-message').remove();
+        }
     }
 
     $('#subscribe-form').submit(function(){
-        $('.success, .error').remove();
+        Message.remove();
+        $('.loading').remove();
+
         var button = $(this).find('input[name$="commit"]');
         button.after("<p class='loading'>Loading...</p>");
 
@@ -32,7 +39,7 @@ $(document).ready(function(){
         })
         .done(function(response) {
             $('.loading').remove();
-            formMessage(response.result, response.message);
+            Message.display(response.result, response.message);
             if(response.result == 'success') {
                 $('input[name$="subscriber[email]"]').val("");
             }
