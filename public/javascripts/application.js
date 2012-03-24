@@ -6,6 +6,24 @@ $(document).ready(function(){
       }
     });
 
+    var loading = "<div id='floatingCirclesG' class='loading'> \
+            <div class='f_circleG' id='frotateG_01'> \
+            </div> \
+            <div class='f_circleG' id='frotateG_02'> \
+            </div> \
+            <div class='f_circleG' id='frotateG_03'> \
+            </div> \
+            <div class='f_circleG' id='frotateG_04'> \
+            </div> \
+            <div class='f_circleG' id='frotateG_05'> \
+            </div> \
+            <div class='f_circleG' id='frotateG_06'> \
+            </div> \
+            <div class='f_circleG' id='frotateG_07'> \
+            </div> \
+            <div class='f_circleG' id='frotateG_08'> \
+            </div> \
+        </div>"
     var Message = {
         display: function(type, message) {
             var typeClass = type + "-message"
@@ -30,7 +48,7 @@ $(document).ready(function(){
         $('.loading').remove();
 
         var button = $(this).find('input[name$="commit"]');
-        button.after("<p class='loading'>Loading...</p>");
+        button.after(loading);
 
         $.ajax({
             type: "POST",
@@ -38,11 +56,13 @@ $(document).ready(function(){
             data: $(this).serialize()
         })
         .done(function(response) {
-            $('.loading').remove();
-            Message.display(response.result, response.message);
-            if(response.result == 'success') {
-                $('input[name$="subscriber[email]"]').val("");
-            }
+            setTimeout(function(){
+                $('.loading').remove();
+                Message.display(response.result, response.message);
+                if(response.result == 'success') {
+                    $('input[name$="subscriber[email]"]').val("");
+                }
+            }, 1000);
         })
         .fail(function(data, status, err){
             alert('알 수 없는 에러가 발생했습니다. = ' + JSON.stringify(data));
