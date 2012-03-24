@@ -11,6 +11,7 @@ group :development do
   gem 'cane'
   gem 'shotgun'
   gem 'heroku'
+  gem 'pow-client'
   gem 'dm-sqlite-adapter'
 end
 
