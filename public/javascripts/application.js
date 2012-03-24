@@ -21,6 +21,7 @@ $(document).ready(function(){
     }
 
     $('#subscribe-form').submit(function(){
+        $('.success, .error').remove();
         var button = $(this).find('input[name$="commit"]');
         button.after("<p class='loading'>Loading...</p>");
 
@@ -31,7 +32,6 @@ $(document).ready(function(){
         })
         .done(function(response) {
             $('.loading').remove();
-            $('.success, .error').remove();
             formMessage(response.result, response.message);
             if(response.result == 'success') {
                 $('input[name$="subscriber[email]"]').val("");
