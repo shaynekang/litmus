@@ -32,3 +32,10 @@ get '/admin' do
   @subscribers = Subscriber.all
   slim :admin
 end
+
+post '/admin/subscribers/:id/remove' do
+  @subscriber = Subscriber.get(params[:id])
+  @subscriber.destroy
+  flash[:notice] = "이메일을 성공적으로 삭제했습니다."
+  redirect to('/admin')
+end

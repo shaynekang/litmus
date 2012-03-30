@@ -5,6 +5,7 @@ require 'sinatra/contrib'
 require 'rack/csrf'
 require 'data_mapper'
 require 'slim'
+require 'pony'
 
 enable :sessions
 use Rack::Csrf, :raise => true

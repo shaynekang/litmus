@@ -41,6 +41,10 @@ h3 {
 	width: 290px;
 }
 
+#subscriber-email-label {
+	display: none;
+}
+
 #subscribe-form input[type=email] {
     width: 200px;
 }

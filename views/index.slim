@@ -25,6 +25,7 @@ html
 
           form action='/subscribe' id='subscribe-form' method='post'
             == csrf_tag
+			label for="subscriber[email]" id="subscriber-email-label" 제목
             input name="subscriber[email]" id="subscribe-email-input" size="30" type="email"
             input name="commit" type="submit" value="구독하기"
 

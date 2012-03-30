@@ -6,6 +6,7 @@ gem 'sinatra-contrib'
 gem 'rack_csrf'
 gem 'datamapper'
 gem 'slim'
+gem 'pony'
 
 group :development do
   gem 'cane'

@@ -9,3 +9,6 @@ html
     ul
     - @subscribers.each do |subscriber|
       li= subscriber.email
+      form action='/admin/subscribers/#{subscriber.id}/remove' method='post'
+        == csrf_tag
+        input name="commit" type="submit" value="remove"
