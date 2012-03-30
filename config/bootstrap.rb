@@ -6,6 +6,7 @@ require 'rack/csrf'
 require 'data_mapper'
 require 'slim'
 require 'pony'
+require 'feedzirra'
 
 enable :sessions
 use Rack::Csrf, :raise => true
@@ -17,6 +18,8 @@ set :password, ENV['ADMIN_PASSWORD'] || 'admin'
 if settings.environment != :production and File.directory?('db') == false
   Dir.mkdir('db')
 end
+
+require './lib/emailable'
 
 DataMapper.setup(:default, settings.database_url)
 

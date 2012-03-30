@@ -7,6 +7,7 @@ gem 'rack_csrf'
 gem 'datamapper'
 gem 'slim'
 gem 'pony'
+gem 'feedzirra'
 
 group :development do
   gem 'cane'
