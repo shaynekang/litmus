@@ -14,8 +14,14 @@ class Subscriber
     }
 
   def self.subscribe
-    Subscriber.all.each do |subscriber|
-      subscriber.send_mail(subject: '리트머스 최신 글', body: "멍멍")
+    feed = Feedzirra::Feed.fetch_and_parse("http://blog.ohmynews.com/litmus/rss")
+    self.all.each do |subscriber|
+      feed.entries.each do |entry|
+        subscriber.send_mail({
+          title: "팀블로그 리트머스 최신글: #{entry.title}",
+          summary: Nokogiri::HTML(entry.summary).xpath("//text()").to_s
+        })
+      end
     end
   end
 
