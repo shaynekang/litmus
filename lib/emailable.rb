@@ -9,7 +9,7 @@ module EMailable
         :address              => 'smtp.gmail.com',
         :port                 => '587',
         :enable_starttls_auto => true,
-        :user_name            => 'contact@walkinc.co.kr',
+        :user_name            => 'username',
         :password             => 'password',
         :authentication       => :plain,
         :domain               => "walkinc.co.kr"
